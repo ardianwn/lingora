@@ -7,10 +7,10 @@ React Native + Expo foundation for Lingora, the AI English Voice Tutor described
 
 ## Current phase
 
-Phase 1 — Foundation. The app currently contains the Expo Router shell, typed
-configuration validation, and a roadmap status screen. Supabase, learning
-features, and voice are intentionally not implemented until their phase gates
-are reached.
+Phase 3 — Learning features. The app now includes Supabase email
+authentication, a protected dashboard, vocabulary creation and listing, and a
+deterministic flashcard review scheduler. Push-to-talk voice remains gated
+until the provider contract and voice test plan are complete.
 
 ## Local setup
 
@@ -26,6 +26,23 @@ npm start
 Only public client configuration may use `EXPO_PUBLIC_*`. The Supabase URL and
 anon key are public client values; Supabase service-role, NVIDIA, STT, TTS, and
 other provider secrets must remain on the server.
+
+For hosted Supabase development, apply migrations with the Supabase CLI after
+linking the project. Provider secrets belong in Supabase Edge Function secrets,
+never in the Expo `.env` file.
+
+## Validation
+
+Run the focused checks before opening a pull request:
+
+```bash
+npm run lint
+npm test -- --runInBand
+npx tsc --noEmit
+```
+
+Database and device checks are documented in
+[`docs/implementation-plan.md`](./docs/implementation-plan.md).
 
 ## Delivery rules
 
