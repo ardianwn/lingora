@@ -34,4 +34,12 @@ describe('scheduleReview', () => {
       nextReviewAt: '2026-01-04T00:00:00.000Z',
     });
   });
+
+  it('does not mutate the review timestamp', () => {
+    const originalTimestamp = reviewedAt.getTime();
+
+    scheduleReview('good', reviewedAt, 2.5, 2);
+
+    expect(reviewedAt.getTime()).toBe(originalTimestamp);
+  });
 });
