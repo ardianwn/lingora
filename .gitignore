@@ -48,3 +48,4 @@ example
 
 # Supabase local state
 supabase/.temp/
+supabase/.branches/
