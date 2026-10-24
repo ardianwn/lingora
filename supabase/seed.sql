@@ -1,0 +1,1 @@
+-- No shared seed data: all learning records are user-owned.
